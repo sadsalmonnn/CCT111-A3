@@ -15,8 +15,11 @@ def main():
     Main function to produce graphs and read data using dictparse and graph modules.
     """
     filename = "video_games_sales.csv"
+
+    # Data is extracted from the csv file
     publisher, year, region, genre, platform = read(filename)
 
+    # The functions take input on the data, the required title, and axis labels where necessary, to output a graph
     linechart_year(year, "Total Sales per Year in the Gaming Industry", "Year", "Total Sales ($ Millions)")
     piechart_developer(publisher, "Average Sale for each Publisher in Comparison")
     piechart_reg(region, "Total Sales for each Region in Comparison")
