@@ -48,27 +48,39 @@ def convertdata_list(dic_):
     return x, y
 
 
-def linechart_year(dic_):
+def linechart_year(dic_, title, axisx, axisy):
     """
     Takes <dic_>, sorts it, plots the data to a line-graph, and displays the graph.
 
     Parameter:
     dic_ -- dictionary of any values
+    title -- title of the graph
+    axisx -- label for the x-axis
+    axisy -- label for the y-axis
     """
     # Prepares the data
     x, y = convertdata_list(sort_dic(dic_))
 
-    # Plots the data on a line-graph and display the graph
+    # Plots the data on a line-graph
     matplotlib.pyplot.plot(x, y)
+
+    # Generates the appropriate labels
+    matplotlib.pyplot.title(title)
+    matplotlib.pyplot.xlabel(axisx)
+    matplotlib.pyplot.ylabel(axisy)
+
+    # Displays the graph
     matplotlib.pyplot.show()
 
 
-def piechart_developer(dic_):
+def piechart_developer(dic_, title):
     """
     Takes <dic_>, sorts it, calculates the average sale for each developer, displays it to a pie-chart in comparison to
     other developers.
+
     Parameter:
     dic_ -- dictionary of any values
+    title -- title of the graph
     """
     # Creates a new data for the section of "Other"
     dic_["Other"] = [0, 0]
@@ -92,32 +104,52 @@ def piechart_developer(dic_):
     # published
     avg_y = [(z[0])/z[1] for z in y]
 
-    # Plots the calculated data onto a pie-chart and displays the graph
+    # Plots the calculated data onto a pie-chart
     matplotlib.pyplot.pie(avg_y, labels=x)
+
+    # Generates the appropriate labels, legend is custom-ly fitted
+    matplotlib.pyplot.legend(bbox_to_anchor=(0.5, -0.05), ncol=5, loc="center")
+    matplotlib.pyplot.title(title)
+
+    # Displays the graph
     matplotlib.pyplot.show()
 
 
-def piechart_reg(dic_):
+def piechart_reg(dic_, title):
     """
     Takes <dic_>, sorts the data accordingly, displays it to a pie-chart
 
     Parameter:
     dic_ -- dictionary of any values
+    title -- title of the graph
     """
     # Prepares the data
     x, y, = convertdata_list(dic_)
 
-    # Plots the calculated data onto a pie-chart and displays the graph
+    # Plots the calculated data onto a pie-chart
     matplotlib.pyplot.pie(y, labels=x)
+
+    # Generates the appropriate labels
+    if len(x) <= 5:
+        matplotlib.pyplot.legend(ncol=2)
+    else:
+        matplotlib.pyplot.legend(bbox_to_anchor=(0.5, -0.05), ncol=5, loc="center")
+    matplotlib.pyplot.title(title)
+
+    # Displays the graph
     matplotlib.pyplot.show()
 
 
-def piechart_platform(dic_):
+def bargraph_platform(dic_, title, axisx, axisy):
     """
-    Takes <dic_>, sorts the data accordingly, displays it to a pie-chart in comparison to
+    Takes <dic_>, sorts the data accordingly, displays it to a bargraph in comparison to
     other platforms.
+
     Parameter:
     dic_ -- dictionary of any values
+    title -- title of the graph
+    axisx -- label for the x-axis
+    axisy -- label for the y-axis
     """
     # Creates a new data for the section of "Other"
     dic_["Other"] = 0
@@ -136,8 +168,15 @@ def piechart_platform(dic_):
     # Prepares the data
     x, y, = convertdata_list(dic_)
 
-    # Plots the  data onto a pie-chart and displays the graph
-    matplotlib.pyplot.pie(y, labels=x)
+    # Plots the  data onto a bargraph
+    matplotlib.pyplot.bar(x, height=y)
+
+    # Generates the appropriate labels
+    matplotlib.pyplot.title(title)
+    matplotlib.pyplot.xlabel(axisx)
+    matplotlib.pyplot.ylabel(axisy)
+
+    # Displays the graph
     matplotlib.pyplot.show()
 
 

@@ -17,11 +17,11 @@ def main():
     filename = "video_games_sales.csv"
     publisher, year, region, genre, platform = read(filename)
 
-    linechart_year(year)
-    piechart_developer(publisher)
-    piechart_reg(region)
-    piechart_reg(genre)
-    piechart_platform(platform)
+    linechart_year(year, "Total Sales per Year in the Gaming Industry", "Year", "Total Sales ($ Millions)")
+    piechart_developer(publisher, "Average Sale for each Publisher in Comparison")
+    piechart_reg(region, "Total Sales for each Region in Comparison")
+    piechart_reg(genre, "Total Sales for each Genre in Comparison")
+    bargraph_platform(platform, "Total Sales on each Platform", "Platforms", "Sales ($ Millions)")
 
 
 if __name__ == "__main__":
