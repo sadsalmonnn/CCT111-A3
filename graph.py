@@ -58,6 +58,9 @@ def linechart_year(dic_, title, axisx, axisy):
     axisx -- label for the x-axis
     axisy -- label for the y-axis
     """
+    # For presentation purpose please uncomment the following
+    # matplotlib.pyplot.rcParams['font.size'] = 24
+
     # Prepares the data
     x, y = convertdata_list(sort_dic(dic_))
 
@@ -168,7 +171,7 @@ def bargraph_platform(dic_, title, axisx, axisy):
     # Prepares the data
     x, y, = convertdata_list(dic_)
 
-    # Plots the  data onto a bargraph
+    # Plots the data onto a bargraph
     matplotlib.pyplot.bar(x, height=y)
 
     # Generates the appropriate labels
