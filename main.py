@@ -22,7 +22,7 @@ def main():
     # The functions take input on the data, the required title, and axis labels where necessary, to output a graph
     linechart_year(year, "Total Sales per Year in the Gaming Industry", "Year", "Total Sales ($ Millions)")
     piechart_developer(publisher, "Average Sale for each Publisher in Comparison")
-    piechart_reg(region, "Total Sales for each Region in Comparison")
+    piechart_region(region, "Total Sales for each Region in Comparison")
     piechart_reg(genre, "Total Sales for each Genre in Comparison")
     bargraph_platform(platform, "Total Sales on each Platform", "Platforms", "Sales ($ Millions)")
 
