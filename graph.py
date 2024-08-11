@@ -143,6 +143,49 @@ def piechart_reg(dic_, title):
     matplotlib.pyplot.show()
 
 
+def piechart_region(dic_, title):
+    """
+    Takes <dic_>, sorts the data accordingly, displays it to a pie-chart
+
+    Parameter:
+    dic_ -- dictionary of any values
+    title -- title of the graph
+    """
+    # Prepares the data
+    x, y, = convertdata_list(dic_)
+
+    # Custom colours
+    color = ['#9FE481', '#67D0DD', '#F6E785', '#FAAFA5']
+
+    # Plots the calculated data onto a pie-chart
+    # autopct: generate percentage to 1 decimal
+    # wedgeprops: creates a space between each chunk
+    # textprops: makes the words larger
+    # colors: changes the chunk colors
+    # explode: pops out one slice
+    matplotlib.pyplot.figure(facecolor="black")
+    chunk, label, number = matplotlib.pyplot.pie(y, labels=x, autopct='%.1f%%',
+                          wedgeprops={'linewidth': 3.0, 'edgecolor': 'white'},
+                          textprops={'size': 'x-large'}, colors=color,
+                          explode=[0.01, 0, 0, 0])
+
+    # Customizes the title
+    matplotlib.pyplot.title(title, fontsize='18', color='white', fontweight='bold')
+
+    # Changes the labels to be white and bold
+    matplotlib.pyplot.setp(number, color='white', fontweight='bold')
+
+    # Changes the label colours to equal the chunk colour and bold
+    for i in range(len(label)):
+        matplotlib.pyplot.setp(label[i], color=color[i], fontweight='bold')
+
+    # Saves the chart with a transparent background
+    matplotlib.pyplot.savefig('region.png', transparent=True, bbox_inches='tight')
+
+    # Displays the graph
+    matplotlib.pyplot.show()
+
+
 def bargraph_platform(dic_, title, axisx, axisy):
     """
     Takes <dic_>, sorts the data accordingly, displays it to a bargraph in comparison to
@@ -172,12 +215,14 @@ def bargraph_platform(dic_, title, axisx, axisy):
     x, y, = convertdata_list(dic_)
 
     # Plots the data onto a bargraph
-    matplotlib.pyplot.bar(x, height=y)
+
+    color = ["#FF5353", "#FF7979", "#FFA5A5"]
+    matplotlib.pyplot.bar(x, height=y, color=color)
 
     # Generates the appropriate labels
-    matplotlib.pyplot.title(title)
-    matplotlib.pyplot.xlabel(axisx)
-    matplotlib.pyplot.ylabel(axisy)
+    matplotlib.pyplot.title(title, fontsize='18', fontweight='bold')
+    matplotlib.pyplot.xlabel(axisx, fontsize='16', fontweight='bold')
+    matplotlib.pyplot.ylabel(axisy, fontsize='16', fontweight='bold')
 
     # Displays the graph
     matplotlib.pyplot.show()
