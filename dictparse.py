@@ -1,27 +1,30 @@
 """
-Author: Cindy Zheng
+Author: Cindy Zheng and Solomon James Ador-Dionisio
 Filename: dictparse.py
 Date: 08/05/24
-Description: In this module, the function read was defined. read takes in data from a csv file,
-namely video_games_sales.csv.
+Description: In this module, the function read was defined. read takes in data
+from a csv file, namely video_games_sales.csv.
 """
 import csv
 
 
 def read(filename: str):
     """
-
     Parameter:
-    filename -- csv file to be read from, video_games_sales.csv to be specific
+    filename --- csv file to be read from, video_games_sales.csv to be specific
 
     Return:
-    publisher -- a dictionary containing the publisher name, a list containing their total sales, and number of games
-    year -- a dictionary containing the year and amount of games released that year
-    region -- a dictionary containing the different regions and the total amount of sales for that region
-    genre -- a dictionary containing the different genres and the total amount of sales for that genre
-    platform -- a dictionary containing the different platforms and the total amount of sales for that platform
+    publisher -- a dictionary containing the publisher name, a list containing
+                 their total sales, and number of games
+    year ------- a dictionary containing the year and amount of games released
+                 that year
+    region ----- a dictionary containing the different regions and the total
+                 amount of sales for that region
+    genre ------ a dictionary containing the different genres and the total
+                 amount of sales for that genre
+    platform --- a dictionary containing the different platforms and the total
+                 amount of sales for that platform
     """
-
     # publisher name: [total sale, # of games]
     publisher = {}
 
@@ -41,7 +44,7 @@ def read(filename: str):
         csv_file = csv.reader(file)
 
         # The csv file is opened as an object and the header is skipped
-        header = next(csv_file)
+        _ = next(csv_file)
 
         # Loops through each line in the csv file
         for line in csv_file:
@@ -51,7 +54,8 @@ def read(filename: str):
                 publisher[line[5]] = [0.0, 0]
 
             # Adds and calculates the total sales and total games
-            publisher[line[5]] = [round(publisher[line[5]][0] + float(line[10]), 2), publisher[line[5]][1] + 1]
+            publisher[line[5]] = [round(publisher[line[5]][0] + float(line[10]),
+                                        2), publisher[line[5]][1] + 1]
 
             # Try-except is used to ensure empty years are skipped
             try:
@@ -60,7 +64,8 @@ def read(filename: str):
                     year[int(float(line[3]))] = 0.0
 
                 # Adds and calculates the total sales and total games
-                year[int(float(line[3]))] = round(year[int(float(line[3]))] + float(line[10]), 2)
+                year[int(float(line[3]))] = round(year[int(float(line[3]))] +
+                                                  float(line[10]), 2)
             except ValueError:
                 continue
 
