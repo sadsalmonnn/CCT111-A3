@@ -1,7 +1,6 @@
 # Video Games Sales Analysis
 
-**Authors:** Cindy Zheng and Solomon James Ador-Dionisio  
-**Date:** August 5, 2024
+![videogamesalesanalysis](https://github.com/user-attachments/assets/e13b8a9a-f01c-413d-a0d1-0452fa75dac7)
 
 ---
 
