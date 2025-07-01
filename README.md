@@ -37,5 +37,3 @@ This project analyzes video game sales data from the `video_games_sales.csv` dat
 
 - `video_games_sales.csv`  
   Dataset containing sales data (not included in the repo).
-
----
