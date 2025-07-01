@@ -1,6 +1,6 @@
 # Video Games Sales Analysis
 
-![videogamesalesanalysis](https://github.com/user-attachments/assets/e13b8a9a-f01c-413d-a0d1-0452fa75dac7)
+![videogamesalesanalysis (2)](https://github.com/user-attachments/assets/fad19f9c-4970-4caa-b8b0-bcd4a07e0692)
 
 ---
 
